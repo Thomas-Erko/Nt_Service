@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Henok",
+    "photoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "languages": ["Amharic", "English"],
+    "church": "Debre Berhan Kidist Sillase",
+    "address": "4406 Broadway Boulevard, Garland, TX, USA",
+    "bio": "Father Henok serves at Debre Berhan Kidist Sillase and is available for spiritual guidance in both Amharic and English.",
+    "contact": ""
+  },
+  {
+    "id": 2,
+    "name": "Mihret",
+    "photoUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    "languages": ["Amharic"],
+    "church": "Mekanaselam",
+    "address": "1709 North Garland Avenue, Garland, TX, USA",
+    "bio": "Father Mihret serves at Mekanaselam and provides spiritual counsel in Amharic.",
+    "contact": ""
+  },
+  {
+    "id": 3,
+    "name": "Hawaz",
+    "photoUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "languages": ["Amharic"],
+    "church": "Wase Gebriel",
+    "address": "1709 North Garland Avenue, Garland, TX, USA",
+    "bio": "Father Hawaz serves at Wase Gebriel and is available for confession and spiritual guidance in Amharic.",
+    "contact": ""
+  }
+]
