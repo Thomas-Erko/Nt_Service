@@ -1,5 +1,7 @@
 const axios = require('axios');
-require('dotenv').config();
+const path = require('path');
+// Load .env from the server directory
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL;
 
