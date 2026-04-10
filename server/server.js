@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const path = require('path');
 const { appendClergyToSheet } = require('./services/googleSheetsWriter');
 const { getClergyFromSheet } = require('./services/googleSheetsReader');
 const { uploadImageToImgBB } = require('./services/imageUpload');
@@ -281,6 +282,18 @@ app.get('/api/blog/post/:fileId', async (req, res) => {
       message: 'Failed to fetch blog post content: ' + error.message
     });
   }
+});
+
+// ============================================
+// SERVE REACT PRODUCTION BUILD
+// ============================================
+
+// Serve static files from React build folder
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+// Handle React routing - return all non-API requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
