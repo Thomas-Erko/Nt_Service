@@ -5,7 +5,8 @@ const path = require('path');
 const { appendClergyToSheet } = require('./services/googleSheetsWriter');
 const { getClergyFromSheet } = require('./services/googleSheetsReader');
 const { uploadImageToImgBB } = require('./services/imageUpload');
-require('dotenv').config();
+// Load .env from the server directory, not the current working directory
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
