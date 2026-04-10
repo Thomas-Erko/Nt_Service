@@ -12,6 +12,9 @@ module.exports = {
       PORT: 5000
     },
     
+    // Load environment variables from .env file
+    env_file: './server/.env',
+    
     // Process management
     instances: 1,
     exec_mode: 'fork',
