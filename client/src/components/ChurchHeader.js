@@ -38,9 +38,14 @@ function ChurchHeader() {
           >
             Nesiha Abat
           </Link>
-          <span className="text-sm text-gray-400 cursor-not-allowed">
+          <Link
+            to="/resources"
+            className={`text-sm transition-colors ${
+              isActive('/resources') ? 'text-teal-accent' : 'text-gray-600 hover:text-teal-accent'
+            }`}
+          >
             Resources
-          </span>
+          </Link>
           <span className="text-sm text-gray-400 cursor-not-allowed">
             Events
           </span>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './KnowledgeBase.css';
 
 function KnowledgeBase() {
   const [posts, setPosts] = useState([]);
@@ -57,6 +58,102 @@ function KnowledgeBase() {
     );
   }
 
+  // Filter posts by tag
+  const getPostsByTag = (tag) => {
+    return posts.filter(post => 
+      post.tags && post.tags.some(t => t.toLowerCase() === tag.toLowerCase())
+    );
+  };
+
+  const popularPosts = getPostsByTag('popular');
+  const youthGroupPosts = getPostsByTag('youth-group');
+  const churchMaintenancePosts = getPostsByTag('church-maintenance');
+
+  // Carousel component
+  const PostCarousel = ({ title, posts, tag }) => {
+    if (posts.length === 0) return null;
+
+    const displayPosts = posts.slice(0, 3);
+    const hasMore = posts.length > 3;
+
+    return (
+      <div className="mb-12">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-green-800">{title}</h2>
+          {hasMore && (
+            <Link 
+              to={`/knowledge-base/all?tag=${tag}`}
+              className="text-green-700 hover:text-green-900 font-medium text-sm flex items-center gap-1"
+            >
+              View More ({posts.length})
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          )}
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayPosts.map((post) => (
+            <Link
+              key={post.id}
+              to={`/knowledge-base/${post.fileId}`}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              {/* Cover Image */}
+              {post.coverImage && (
+                <div className="h-48 bg-gray-200 overflow-hidden">
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Post Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-green-800 mb-2 line-clamp-2">
+                  {post.title}
+                </h3>
+                
+                <div className="flex items-center text-sm text-gray-500 mb-3">
+                  <span>{post.author}</span>
+                  <span className="mx-2">•</span>
+                  <span>{new Date(post.date).toLocaleDateString()}</span>
+                </div>
+
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {post.summary}
+                </p>
+
+                {/* Tags */}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="mt-4 text-green-700 font-medium text-sm">
+                  Read more →
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -69,8 +166,16 @@ function KnowledgeBase() {
         </div>
       </div>
 
-      {/* Posts Grid */}
+      {/* Tag-based Carousels */}
       <div className="max-w-6xl mx-auto px-4 py-12">
+        <PostCarousel title="Popular" posts={popularPosts} tag="popular" />
+        <PostCarousel title="Youth Group" posts={youthGroupPosts} tag="youth-group" />
+        <PostCarousel title="Church Maintenance" posts={churchMaintenancePosts} tag="church-maintenance" />
+      </div>
+
+      {/* All Posts Grid */}
+      <div className="max-w-6xl mx-auto px-4 pb-12">
+        <h2 className="text-2xl font-bold text-green-800 mb-6">All Articles</h2>
         {posts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-500">No posts available yet. Check back soon!</p>

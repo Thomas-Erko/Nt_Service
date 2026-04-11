@@ -6,7 +6,9 @@ import ChurchFooter from './components/ChurchFooter';
 const ChurchHome = lazy(() => import('./pages/ChurchHome'));
 const NewNesihaAbat = lazy(() => import('./pages/NewNesihaAbat'));
 const ClergyDetail = lazy(() => import('./pages/ClergyDetail'));
+const Resources = lazy(() => import('./pages/Resources'));
 const KnowledgeBase = lazy(() => import('./pages/KnowledgeBase'));
+const AllBlogs = lazy(() => import('./pages/AllBlogs'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 
 const LoadingFallback = () => (
@@ -29,8 +31,10 @@ function AppChurch() {
               <Route path="/" element={<ChurchHome />} />
               <Route path="/nesiha-abat" element={<NewNesihaAbat />} />
               <Route path="/clergy/:id" element={<ClergyDetail />} />
+              <Route path="/resources" element={<Resources />} />
               {/* Blog/Knowledge Base Routes - Completely separate from clergy system */}
               <Route path="/knowledge-base" element={<KnowledgeBase />} />
+              <Route path="/knowledge-base/all" element={<AllBlogs />} />
               <Route path="/knowledge-base/:id" element={<BlogPost />} />
             </Routes>
           </Suspense>
