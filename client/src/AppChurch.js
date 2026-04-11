@@ -10,6 +10,7 @@ const Resources = lazy(() => import('./pages/Resources'));
 const KnowledgeBase = lazy(() => import('./pages/KnowledgeBase'));
 const AllBlogs = lazy(() => import('./pages/AllBlogs'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const BookRecommendations = lazy(() => import('./pages/BookRecommendations'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -32,6 +33,7 @@ function AppChurch() {
               <Route path="/nesiha-abat" element={<NewNesihaAbat />} />
               <Route path="/clergy/:id" element={<ClergyDetail />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/book-recommendations" element={<BookRecommendations />} />
               {/* Blog/Knowledge Base Routes - Completely separate from clergy system */}
               <Route path="/knowledge-base" element={<KnowledgeBase />} />
               <Route path="/knowledge-base/all" element={<AllBlogs />} />

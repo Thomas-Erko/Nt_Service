@@ -286,6 +286,58 @@ app.get('/api/blog/post/:fileId', async (req, res) => {
 });
 
 // ============================================
+// BOOK RECOMMENDATIONS ENDPOINTS - COMPLETELY SEPARATE SYSTEM
+// ============================================
+
+// Get all book recommendations
+app.get('/api/books', async (req, res) => {
+  try {
+    console.log('=== BOOKS REQUEST START ===');
+    
+    const BOOKS_APPS_SCRIPT_URL = process.env.BOOKS_APPS_SCRIPT_URL;
+    console.log('BOOKS_APPS_SCRIPT_URL from env:', BOOKS_APPS_SCRIPT_URL);
+    
+    if (!BOOKS_APPS_SCRIPT_URL) {
+      console.error('BOOKS_APPS_SCRIPT_URL not configured');
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Book recommendations system not configured. Please set BOOKS_APPS_SCRIPT_URL in .env' 
+      });
+    }
+    
+    const fullUrl = `${BOOKS_APPS_SCRIPT_URL}?action=getBooks`;
+    console.log('Fetching from URL:', fullUrl);
+    
+    const response = await fetch(fullUrl);
+    console.log('Response status:', response.status);
+    
+    const responseText = await response.text();
+    console.log('Raw response (first 500 chars):', responseText.substring(0, 500));
+    
+    let data;
+    try {
+      data = JSON.parse(responseText);
+      console.log('Parsed JSON successfully');
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError.message);
+      throw new Error('Apps Script returned non-JSON response: ' + responseText.substring(0, 200));
+    }
+    
+    console.log('Books response:', data.success ? `${data.data.length} books` : 'Failed');
+    console.log('=== BOOKS REQUEST END ===');
+    res.json(data);
+    
+  } catch (error) {
+    console.error('=== ERROR IN BOOKS ENDPOINT ===');
+    console.error('Error message:', error.message);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to fetch books: ' + error.message
+    });
+  }
+});
+
+// ============================================
 // SERVE REACT PRODUCTION BUILD
 // ============================================
 
