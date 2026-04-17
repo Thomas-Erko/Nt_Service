@@ -338,6 +338,58 @@ app.get('/api/books', async (req, res) => {
 });
 
 // ============================================
+// YOUTH GROUPS ENDPOINTS - COMPLETELY SEPARATE SYSTEM
+// ============================================
+
+// Get all youth groups
+app.get('/api/youth-groups', async (req, res) => {
+  try {
+    console.log('=== YOUTH GROUPS REQUEST START ===');
+    
+    const YOUTH_GROUPS_APPS_SCRIPT_URL = process.env.YOUTH_GROUPS_APPS_SCRIPT_URL;
+    console.log('YOUTH_GROUPS_APPS_SCRIPT_URL from env:', YOUTH_GROUPS_APPS_SCRIPT_URL);
+    
+    if (!YOUTH_GROUPS_APPS_SCRIPT_URL) {
+      console.error('YOUTH_GROUPS_APPS_SCRIPT_URL not configured');
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Youth groups system not configured. Please set YOUTH_GROUPS_APPS_SCRIPT_URL in .env' 
+      });
+    }
+    
+    const fullUrl = `${YOUTH_GROUPS_APPS_SCRIPT_URL}?action=getYouthGroups`;
+    console.log('Fetching from URL:', fullUrl);
+    
+    const response = await fetch(fullUrl);
+    console.log('Response status:', response.status);
+    
+    const responseText = await response.text();
+    console.log('Raw response (first 500 chars):', responseText.substring(0, 500));
+    
+    let data;
+    try {
+      data = JSON.parse(responseText);
+      console.log('Parsed JSON successfully');
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError.message);
+      throw new Error('Apps Script returned non-JSON response: ' + responseText.substring(0, 200));
+    }
+    
+    console.log('Youth groups response:', data.success ? `${data.data.length} groups` : 'Failed');
+    console.log('=== YOUTH GROUPS REQUEST END ===');
+    res.json(data);
+    
+  } catch (error) {
+    console.error('=== ERROR IN YOUTH GROUPS ENDPOINT ===');
+    console.error('Error message:', error.message);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to fetch youth groups: ' + error.message
+    });
+  }
+});
+
+// ============================================
 // SERVE REACT PRODUCTION BUILD
 // ============================================
 

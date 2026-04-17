@@ -11,7 +11,7 @@ function ChurchFooter() {
           <p className="text-lg mb-2">
             <Amharic>የማታ አገልግሎት</Amharic> · Nighttime Service
           </p>
-          <p className="text-xs text-gray-400">Connecting the EOTC community · DFW</p>
+          <p className="text-xs text-gray-400">Connecting the EOTC community nationwide</p>
         </div>
 
         {/* Nav Links */}
@@ -30,7 +30,7 @@ function ChurchFooter() {
         {/* Disclaimer */}
         <div className="text-center">
           <p className="text-xs text-white/50 max-w-2xl mx-auto leading-relaxed">
-            An independent community knowledge resource for EOTC members in the DFW area. 
+            An independent community knowledge resource for EOTC members across the United States. 
             Not endorsed by or affiliated with the Ethiopian Orthodox Tewahedo Church or 
             any of its governing bodies.
           </p>

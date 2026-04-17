@@ -17,7 +17,7 @@ function ChurchHome() {
           </h2>
           <p className="text-gray-600 text-sm leading-relaxed max-w-3xl mx-auto mb-8">
             We are an independent community resource for Ethiopian Orthodox Tewahedo Church members 
-            in the DFW area. This site is an amalgamation of community knowledge to help members 
+            across the United States. This site is an amalgamation of community knowledge to help members 
             find a Nesiha Abat and understand how to run and maintain an EOTC church. Join us this{' '}
             <a href="#" className="text-teal-accent hover:underline">Sunday</a> as we serve our community.
           </p>
@@ -75,18 +75,22 @@ function ChurchHome() {
       <section className="py-16 bg-white">
         <div className="max-w-content mx-auto px-4">
           <h2 className="text-3xl font-light text-teal-accent text-center mb-12">
-            How to find us
+            Get Connected
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Card 1 - The blind leading the blind (English) */}
+            {/* Card 1 - Find a Father */}
             <div className="text-center">
               <div className="h-56 bg-gray-200 rounded-lg mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-green-primary to-green-secondary"></div>
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1uSXD0srkcamInzYup8UDX9tc5WLNOj5h" 
+                  alt="Ethiopian Orthodox clergy"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-lg font-medium text-gray-800 mb-3">The blind leading the blind</h3>
+              <h3 className="text-lg font-medium text-gray-800 mb-3">Find a Father</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4 px-2">
-                Find a spiritual father confessor in the DFW area. Filter by language 
+                Find a spiritual father confessor nationwide. Filter by language 
                 and church to find your Aba.
               </p>
               <Link
@@ -97,18 +101,22 @@ function ChurchHome() {
               </Link>
             </div>
 
-            {/* Card 2 - Amharic version */}
+            {/* Card 2 - Find a Youth Group */}
             <div className="text-center">
               <div className="h-56 bg-gray-200 rounded-lg mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-teal-accent to-green-secondary"></div>
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1WYMGcjwfncRUyYVCyoU6SJleAQShVUXv" 
+                  alt="Youth group"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <Amharic className="text-lg font-medium text-gray-800 mb-3 block">ዐይነ ስውር ዐይነ ስውር ሲመራ</Amharic>
+              <h3 className="text-lg font-medium text-gray-800 mb-3">Find a Youth Group</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4 px-2">
-                Connect with other EOTC members in your area. Join a Mahber or 
-                community prayer group near you.
+                Connect with other EOTC members in your area. Join a 
+                Mahber or community prayer group near you.
               </p>
               <Link
-                to="/nesiha-abat"
+                to="/youth-groups"
                 className="inline-block border border-gray-600 text-gray-600 rounded-full px-6 py-2 text-xs hover:bg-teal-accent hover:text-white hover:border-teal-accent transition-all"
               >
                 Read more

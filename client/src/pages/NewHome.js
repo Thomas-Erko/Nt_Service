@@ -83,7 +83,7 @@ function NewHome() {
                 <span className="text-gold-accent italic font-serif">home.</span>
               </h1>
               <p className="text-white opacity-70 text-sm mb-6">
-                EOTC Community Resource · DFW Area
+                EOTC Community Resource · Nationwide
               </p>
               <Link 
                 to="/nesiha-abat"
@@ -243,7 +243,7 @@ function NewHome() {
           NESIHA ABAT
         </h2>
         <p className="text-xs text-gray-500 mb-4">
-          Find a spiritual father confessor in the DFW area
+          Find a spiritual father confessor nationwide
         </p>
         
         <div className="flex gap-3 mb-4">

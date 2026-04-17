@@ -15,7 +15,7 @@ function HeroSlider() {
     {
       quote: "ዐይነ ስውር ዐይነ ስውር ሲመራ",
       isAmharic: true,
-      sub: "Ethiopian Orthodox Tewahedo · DFW Area",
+      sub: "Ethiopian Orthodox Tewahedo · Nationwide",
       button: "Get started",
       link: "/nesiha-abat"
     }

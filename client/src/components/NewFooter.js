@@ -8,7 +8,7 @@ function NewFooter() {
           የማታ አገልግሎት · Nighttime Service
         </p>
         <p className="text-white opacity-55 text-xs max-w-3xl mx-auto leading-relaxed">
-          An independent community knowledge resource for EOTC members in the DFW area. 
+          An independent community knowledge resource for EOTC members across the United States. 
           Not endorsed by or affiliated with the Ethiopian Orthodox Tewahedo Church or 
           any of its governing bodies.
         </p>

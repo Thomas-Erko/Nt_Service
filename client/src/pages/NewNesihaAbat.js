@@ -149,15 +149,15 @@ function NewNesihaAbat() {
           <div>
             <h4 className="text-xs font-medium text-green-700 mb-1">Welcome</h4>
             <p className="text-xs text-gray-500 leading-relaxed">
-              This is an Orthodox Tewahedo Christian site to help youth or people new to the DFW 
-              area find a Nesiha Abat. We encourage reaching out to the Aba at church first. 
+              This is an Orthodox Tewahedo Christian site to help youth or people 
+              find a Nesiha Abat. We encourage reaching out to the Aba at church first. 
               To add an Aba to our list please contact us.
             </p>
           </div>
           <div>
             <h4 className="font-ethiopic text-xs font-medium text-green-700 mb-1">ሰላም</h4>
             <p className="font-ethiopic text-xs text-gray-500 leading-relaxed">
-              ይህ የኦርቶዶክስ ተዋህዶ ክርስቲያን ድረ-ገጽ ለወጣቶች ወይም ለDFW አካባቢ አዲስ ለሆኑ ሰዎች ነሲሃ አባት እንዲያገኙ የተዘጋጀ ነው። 
+              ይህ የኦርቶዶክስ ተዋህዶ ክርስቲያን ድረ-ገጽ ለወጣቶች ወይም ለሰዎች ነሲሃ አባት እንዲያገኙ የተዘጋጀ ነው። 
               በቤተክርስቲያንዎ ካለው አባ ጋር እንዲያነጋግሩ እናበረታታለን። አባትን ወደ ዝርዝራችን ለመጨመር እባክዎ ያነጋግሩን።
             </p>
           </div>
