@@ -9,7 +9,7 @@ module.exports = {
     // Environment variables
     env: {
       NODE_ENV: 'production',
-      PORT: 5000
+      PORT: 3000
     },
     
     // Load environment variables from .env file

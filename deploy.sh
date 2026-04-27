@@ -48,6 +48,18 @@ pm2 restart nighttime-service || pm2 start server/server.js --name nighttime-ser
 pm2 save
 echo ""
 
+echo -e "${YELLOW}Step 6: Verifying reverse proxy configuration...${NC}"
+# Check if reverse proxy is properly configured
+if sudo systemctl is-active --quiet nginx; then
+    echo -e "${GREEN}✓ Nginx reverse proxy is running${NC}"
+elif sudo systemctl is-active --quiet apache2; then
+    echo -e "${GREEN}✓ Apache reverse proxy is running${NC}"
+else
+    echo -e "${YELLOW}⚠ No reverse proxy detected. Traffic will be on port 3000 only.${NC}"
+    echo "To set up reverse proxy, run: ./configure-reverse-proxy.sh 3000"
+fi
+echo ""
+
 echo -e "${GREEN}=========================================="
 echo "Deployment completed successfully!"
 echo "==========================================${NC}"
